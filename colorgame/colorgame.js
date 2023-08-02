@@ -32,7 +32,6 @@ function roll() {
             document.getElementById('moneyy').value = parseFloat(document.getElementById('moneyy').value) + (parseFloat(betOnColors[i])*n)
             }
         }
-
 }
 
 function rst() {
@@ -40,4 +39,20 @@ function rst() {
     for (let i = 0; i < colorArray.length; i++) {
         document.getElementById(colorArray[i]).value = 0;
         }
+}
+
+
+
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("number", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("number");
+  ev.target.appendChild(document.getElementById(data));
 }
